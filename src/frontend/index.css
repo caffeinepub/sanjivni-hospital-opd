@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ─────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans[wght].woff2") format("woff2");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces[SOFT,WONK,opsz,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* ── Medical Green Palette ── */
+    --background: 0.98 0.005 145;
+    --foreground: 0.16 0.02 145;
+
+    --card: 1 0 0;
+    --card-foreground: 0.16 0.02 145;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.16 0.02 145;
+
+    /* Primary: Rich medical green */
+    --primary: 0.45 0.16 155;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary: Soft sage */
+    --secondary: 0.93 0.025 145;
+    --secondary-foreground: 0.28 0.06 155;
+
+    --muted: 0.94 0.015 145;
+    --muted-foreground: 0.5 0.04 155;
+
+    /* Accent: Warm teal highlight */
+    --accent: 0.88 0.05 175;
+    --accent-foreground: 0.2 0.08 175;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.025 145;
+    --input: 0.9 0.02 145;
+    --ring: 0.45 0.16 155;
+
+    /* Chart */
+    --chart-1: 0.45 0.16 155;
+    --chart-2: 0.6 0.12 175;
+    --chart-3: 0.7 0.1 155;
+    --chart-4: 0.8 0.08 145;
+    --chart-5: 0.55 0.14 165;
+
+    /* Sidebar */
+    --sidebar: 0.18 0.04 155;
+    --sidebar-foreground: 0.96 0.01 145;
+    --sidebar-primary: 0.55 0.16 155;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.25 0.05 155;
+    --sidebar-accent-foreground: 0.96 0.01 145;
+    --sidebar-border: 0.3 0.04 155;
+    --sidebar-ring: 0.45 0.16 155;
+
+    /* Custom */
+    --medical-green: 0.45 0.16 155;
+    --medical-green-light: 0.72 0.13 155;
+    --medical-green-pale: 0.93 0.04 155;
+    --medical-teal: 0.52 0.14 185;
+    --medical-surface: 0.97 0.01 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Utility classes ─────────────────────────────────────────── */
+@layer utilities {
+  .font-display {
+    font-family: "Fraunces", Georgia, serif;
+  }
+  .font-body {
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+
+  .text-medical-green {
+    color: oklch(var(--medical-green));
+  }
+
+  .bg-medical-green {
+    background-color: oklch(var(--medical-green));
+  }
+
+  .bg-medical-surface {
+    background-color: oklch(var(--medical-surface));
+  }
+
+  .bg-medical-pale {
+    background-color: oklch(var(--medical-green-pale));
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      oklch(0.18 0.06 155) 0%,
+      oklch(0.26 0.08 165) 40%,
+      oklch(0.22 0.07 175) 100%
+    );
+  }
+
+  .gradient-card {
+    background: linear-gradient(
+      160deg,
+      oklch(1 0 0) 0%,
+      oklch(0.96 0.02 155) 100%
+    );
+  }
+
+  .shadow-medical {
+    box-shadow:
+      0 4px 6px -1px oklch(0.45 0.16 155 / 0.1),
+      0 2px 4px -2px oklch(0.45 0.16 155 / 0.06);
+  }
+
+  .shadow-medical-lg {
+    box-shadow:
+      0 10px 25px -5px oklch(0.45 0.16 155 / 0.15),
+      0 4px 10px -5px oklch(0.45 0.16 155 / 0.1);
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(
+      oklch(0.45 0.16 155 / 0.08) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+}
